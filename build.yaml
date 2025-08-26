@@ -1,0 +1,14 @@
+targets:
+  riverpod_shared_preferences:
+    builders:
+      json_serializable:
+        options:
+          checked: true
+          explicit_to_json: true
+          include_if_null: false
+
+global_options:
+  freezed:
+    runs_before:
+      - json_serializable
+ 
