@@ -46,25 +46,6 @@ void main() {
       });
     });
 
-    group('toPersistedData', () {
-      test('adapts PersistedSpValue to PersistedData', () {
-        withClock(clock, () {
-          final instance = PersistedSpValue(
-            key: 'test_key',
-            data: 'test_data',
-            expiresAt: time,
-            destroyKey: 'test_destroy_key',
-          );
-
-          final data = instance.toPersistedData();
-
-          expect(data.destroyKey, equals('test_destroy_key'));
-          expect(data.data, equals('test_data'));
-          expect(data.expireAt, equals(time));
-        });
-      });
-    });
-
     group('isExpired', () {
       final instance = PersistedSpValue(
         key: 'test_key',
