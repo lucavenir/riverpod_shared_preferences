@@ -22,11 +22,8 @@ final class LegacyJsonSharedPreferencesStorage extends Storage<String, String> {
 
   /// opens shared_preferences and initializes the storage;
   /// also deletes expired keys before returning
-  /// optionally accepts an already initialized instance
-  static Future<LegacyJsonSharedPreferencesStorage> open([
-    SharedPreferences? sP,
-  ]) async {
-    final sharedPreferences = sP ?? await SharedPreferences.getInstance();
+  static Future<LegacyJsonSharedPreferencesStorage> open() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
     final instance = LegacyJsonSharedPreferencesStorage._(sharedPreferences);
     return instance;
   }

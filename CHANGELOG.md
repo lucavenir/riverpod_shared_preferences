@@ -1,5 +1,6 @@
 ## 0.0.3
 - changelog ordering was wrong, silly me!
+- reverted the optional `SharedPreferences` param change
 
 ## 0.0.2
 
