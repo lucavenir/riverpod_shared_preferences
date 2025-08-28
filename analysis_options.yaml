@@ -1,5 +1,26 @@
-include: package:lints/recommended.yaml
+include: package:very_good_analysis/analysis_options.yaml
 
 analyzer:
   errors:
     invalid_annotation_target: ignore
+    missing_required_param: error
+    missing_return: error
+    avoid_print: warning
+
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+  exclude:
+    - lib/**/*.g.dart
+    - lib/**/*.freezed.dart
+
+linter:
+  rules:
+    require_trailing_commas: false
+    one_member_abstracts: false
+    cascade_invocations: false
+
+formatter:
+  page_width: 80
