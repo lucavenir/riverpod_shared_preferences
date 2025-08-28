@@ -1,6 +1,6 @@
 name: riverpod_shared_preferences
 description: An adapter to connect shared_preferences with riverpod
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/lucavenir/riverpod_shared_preferences
 
 environment:
