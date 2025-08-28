@@ -29,13 +29,7 @@ void main() {
     group('computeRiverpodKey', () {
       test('returns correct shared preferences key', () {
         final key = Helpers.computeRiverpodKey('abc');
-        expect(key, equals('riverpod§abc'));
-      });
-      test('throws ArgumentError if key contains reserved character', () {
-        expect(
-          () => Helpers.computeRiverpodKey('abc§def'),
-          throwsArgumentError,
-        );
+        expect(key, equals('riverpod.abc'));
       });
       test('throws ArgumentError if key is empty', () {
         expect(() => Helpers.computeRiverpodKey(''), throwsArgumentError);
