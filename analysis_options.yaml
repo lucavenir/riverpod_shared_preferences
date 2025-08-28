@@ -21,6 +21,8 @@ linter:
     require_trailing_commas: false
     one_member_abstracts: false
     cascade_invocations: false
+    prefer_single_quotes: false
+    prefer_double_quotes: true
 
 formatter:
   page_width: 80
