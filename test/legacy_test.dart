@@ -15,7 +15,7 @@ void main() {
       storage = await LegacyJsonSharedPreferencesStorage.open();
     });
 
-    test("Clears expired keys on creation", () {
+    test("clears expired keys on creation", () {
       FakeAsync().run((async) async {
         await storage.write("expired", "value", options);
         final ttl2 = ttl + const Duration(days: 1);
