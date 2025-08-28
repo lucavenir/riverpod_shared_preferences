@@ -1,22 +1,27 @@
-import 'dart:async';
-import 'dart:convert';
+import "dart:async";
+import "dart:convert";
 
-import 'package:meta/meta.dart';
-import 'package:riverpod/experimental/persist.dart';
-import 'package:riverpod_shared_preferences/src/helpers.dart';
-import 'package:riverpod_shared_preferences/src/models/persisted_sp_value.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import "package:meta/meta.dart";
+import "package:riverpod/experimental/persist.dart";
+import "package:riverpod_shared_preferences/src/helpers.dart";
+import "package:riverpod_shared_preferences/src/models/persisted_sp_value.dart";
+import "package:shared_preferences/shared_preferences.dart";
 
 /// a [Storage] that stores data in a [SharedPreferences] using JSON.
 ///
 /// This is generally used in combination `riverpod_annotation's` `JsonPersist`.
 final class LegacyJsonSharedPreferencesStorage extends Storage<String, String> {
   LegacyJsonSharedPreferencesStorage._(this.prefs) : super();
+
+  /// the underlying [SharedPreferences] instance;
+  /// shouldn't be directly tampered with
+  @internal
   @protected
   @visibleForTesting
   final SharedPreferences prefs;
 
-  /// opens shared_preferences and initializes the storage, by also deleting expired keys
+  /// opens shared_preferences and initializes the storage;
+  /// also deletes expired keys before returning
   static Future<LegacyJsonSharedPreferencesStorage> open() async {
     final sharedPreferences = await SharedPreferences.getInstance();
     final instance = LegacyJsonSharedPreferencesStorage._(sharedPreferences);
@@ -40,7 +45,6 @@ final class LegacyJsonSharedPreferencesStorage extends Storage<String, String> {
 
   @override
   Future<void> delete(String key) async {
-    // TODO(lv): shared preferences return a bool indicating success or failure, what should we do when it's false?
     final riverpodKey = Helpers.computeRiverpodKey(key);
     final _ = await prefs.remove(riverpodKey);
   }
