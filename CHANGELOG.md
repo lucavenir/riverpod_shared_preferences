@@ -1,6 +1,5 @@
-## 0.0.1
-
-- Initial version
+## 0.0.3
+- changelog ordering was wrong, silly me!
 
 ## 0.0.2
 
@@ -10,3 +9,7 @@
 - applied linting to the project
 - added a few inline docs
 - added a proper README
+
+## 0.0.1
+
+- Initial version
