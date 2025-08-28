@@ -11,7 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///
 /// This is generally used in combination `riverpod_annotation's` `JsonPersist`.
 final class LegacyJsonSharedPreferencesStorage extends Storage<String, String> {
-  LegacyJsonSharedPreferencesStorage._(this.prefs);
+  LegacyJsonSharedPreferencesStorage._(this.prefs) : super();
   @protected
   @visibleForTesting
   final SharedPreferences prefs;
@@ -20,7 +20,6 @@ final class LegacyJsonSharedPreferencesStorage extends Storage<String, String> {
   static Future<LegacyJsonSharedPreferencesStorage> open() async {
     final sharedPreferences = await SharedPreferences.getInstance();
     final instance = LegacyJsonSharedPreferencesStorage._(sharedPreferences);
-    await instance.deleteOutOfDate();
     return instance;
   }
 
