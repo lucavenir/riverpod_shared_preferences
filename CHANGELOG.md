@@ -1,6 +1,8 @@
 ## 0.0.3
 - changelog ordering was wrong, silly me!
 - reverted the optional `SharedPreferences` param change
+- new: added `JsonSharedPreferencesWithCacheStorage` that leverages `SharedPreferencesWithCache` APIs
+- new: added `JsonSharedPreferencesAsyncStorage` that leverages `SharedPreferencesAsync` APIs
 
 ## 0.0.2
 
